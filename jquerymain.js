@@ -14,3 +14,58 @@ window.addComment=function(a){function b(){c(),g()}function c(a){if(t&&(m=j(r.ca
 (function(b,l,e,g,h,f){1!==parseInt(e.msDoNotTrack||b.doNotTrack||e.doNotTrack,10)&&b.addEventListener("load",function(){var r=(new Date).getTime();b.galite=b.galite||{};var m=new XMLHttpRequest,n="https://www.google-analytics.com/collect?cid="+(l.uid=l.uid||Math.random()+"."+Math.random())+"&v=1&tid="+galite.UA+"&dl="+f(h.location.href)+"&ul=en-us&de=UTF-8",a=function(b){var d="",c;for(c in b){if(void 0===b[c])return!1;d+=f(b[c])}return d},p={dt:[h.title],sd:[g.colorDepth,"-bit"],sr:[g.availHeight,
 "x",g.availWidth],vp:[innerWidth,"x",innerHeight],dr:[h.referrer]},k;for(k in p){var q=k+"="+a(p[k]);q&&(n+="&"+q)}a=function(b,d){var c="",a;for(a in d)c="&"+a+"="+f(d[a]);return function(){var a=n+c+(galite.anonymizeIp?"&aip=1":"")+"&t="+f(b)+"&z="+(new Date).getTime();if(e.sendBeacon)e.sendBeacon(a);else try{m.open("GET",a,!1),m.send()}catch(t){(new Image).src=a}}};setTimeout(a("pageview",null),100);b.addEventListener("unload",a("timing",{utc:"JS Dependencies",utv:"unload",utt:(new Date).getTime()-
 r}))})})(window,localStorage,navigator,screen,document,encodeURIComponent);
+    	window.onload = function(){
+			var stylesheet = document.createElement('link');
+			stylesheet.href = 'https://cdn.jsdelivr.net/gh/paritoshpandey966/myprogrammingtutorials@5.0/style.css';			
+			stylesheet.rel = 'stylesheet';
+			document.getElementsByTagName('head')[0].appendChild(stylesheet);		
+    	}
+
+		document.addEventListener("DOMContentLoaded", function() {
+			var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));;
+
+			if ("IntersectionObserver" in window && "IntersectionObserverEntry" in window && "intersectionRatio" in window.IntersectionObserverEntry.prototype) {
+				let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+					entries.forEach(function(entry) {
+						if (entry.isIntersecting) {
+							let lazyImage = entry.target;
+							lazyImage.src = lazyImage.dataset.src;
+							// lazyImage.srcset = lazyImage.dataset.srcset;
+							lazyImage.classList.remove("lazy");
+							lazyImageObserver.unobserve(lazyImage);
+						}
+					});
+				});
+
+				lazyImages.forEach(function(lazyImage) {
+				  lazyImageObserver.observe(lazyImage);
+				});
+			}
+		});        
+        
+        var galite=galite||{};galite.UA="UA-92594373-1";
+        
+        function downloadJSAtOnload() {
+            setTimeout(() => {
+                var element = document.createElement("script");
+                element.src = "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+                document.body.appendChild(element);  
+                
+                var element2 = document.createElement("script");
+                element2.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit2";
+                document.body.appendChild(element2);                  
+            }, 1000);
+        }
+        
+        if (window.addEventListener){
+            window.addEventListener("load", downloadJSAtOnload, false);
+        } else if (window.attachEvent){
+            window.attachEvent("onload", downloadJSAtOnload);
+        } else {
+            window.onload = downloadJSAtOnload;
+        }
+        
+    	function googleTranslateElementInit2() {
+    	    new google.translate.TranslateElement({pageLanguage: 'en',autoDisplay: false}, 'google_translate_element2');
+    	    
+    	}
